@@ -3,10 +3,10 @@ import { StyleSheet, Text, View } from 'react-native'
 export default App = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.boxStyleA}>
+      <View style={[styles.box, styles.lightGreen]}>
         <Text>Box 1</Text>
       </View>
-      <View style={styles.boxStyleB}>
+      <View style={[styles.box, styles.lightBlue]}>
         <Text>Box 2</Text>
       </View>
     </View>
@@ -15,16 +15,16 @@ export default App = () => {
 
 export const styles = StyleSheet.create({
   container: { flex: 1, padding: 60, backgroundColor: 'teal' },
-  boxStyleA: {
-    backgroundColor: 'lightgreen',
+  box: {
     width: 100,
     height: 100,
     padding: 10,
   },
-  boxStyleB: {
+  lightGreen: {
+    backgroundColor: 'lightgreen',
+  },
+
+  lightBlue: {
     backgroundColor: 'lightblue',
-    width: 100,
-    height: 100,
-    padding: 10,
   },
 })
