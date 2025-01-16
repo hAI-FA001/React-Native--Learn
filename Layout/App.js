@@ -34,10 +34,14 @@ const styles = StyleSheet.create({
     height: 300,
 
     // flex: 1, // border shows it takes up all space rather than only space occupied by children
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'stretch',
     flexWrap: 'wrap',
-    alignContent: 'space-between',
+    alignContent: 'center',
+
+    // rowGap: 10,
+    // columnGap: 20,
+    gap: 20,
   },
 })
