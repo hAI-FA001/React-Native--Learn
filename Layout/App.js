@@ -34,9 +34,10 @@ const styles = StyleSheet.create({
     height: 300,
 
     // flex: 1, // border shows it takes up all space rather than only space occupied by children
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    flexWrap: 'wrap-reverse',
+    alignItems: 'stretch',
+    flexWrap: 'wrap',
+    alignContent: 'space-between',
   },
 })
