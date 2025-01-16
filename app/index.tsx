@@ -2,6 +2,7 @@ import {
   Button,
   Image,
   ImageBackground,
+  Pressable,
   ScrollView,
   Text,
   View,
@@ -17,9 +18,41 @@ export default function Index() {
         onPress={() => {
           console.log("Pressed button");
         }}
-        color="midnightblue"
-        disabled
       />
+      <Pressable
+        onPress={() => {
+          console.log("Pressed Image");
+        }}
+        onLongPress={() => {
+          console.log("Long-pressed Image");
+        }}
+      >
+        <Image source={logoImg} style={{ width: 300, height: 300 }} />
+      </Pressable>
+      <Pressable
+        onPress={() => {
+          console.log("Pressed Text");
+        }}
+        onPressIn={() => {
+          console.log("Press-In");
+        }}
+        onPressOut={() => {
+          console.log("Press-out");
+        }}
+      >
+        <Text>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure
+          expedita consectetur vel quibusdam, aspernatur porro nam velit, vitae
+          vero exercitationem repudiandae tenetur eaque, laborum rem ea autem
+          consequuntur est repellat. Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Incidunt impedit eaque hic dolore, in molestias iure
+          delectus eveniet facere. Error vitae harum doloribus aliquam ipsam et
+          officia ratione porro quis. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Itaque, explicabo asperiores nulla ad quam sint quod
+          error dolorem nisi a unde necessitatibus minima ut in alias commodi
+          corrupti eveniet. Laborum.
+        </Text>
+      </Pressable>
     </View>
   );
 }
