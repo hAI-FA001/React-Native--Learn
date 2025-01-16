@@ -30,8 +30,10 @@ export default function Index() {
           console.log("Back button pressed");
           setVis(false);
         }}
+        animationType="slide" // or fade
+        presentationStyle="formSheet"
       >
-        <View style={{ padding: 30, width: 300, height: 300 }}>
+        <View style={{ padding: 30 }}>
           <Text>Modal Content Here</Text>
           <Button
             title="Close"
