@@ -3,6 +3,12 @@ import { StyleSheet, Text, View } from 'react-native'
 export default App = () => {
   return (
     <View style={styles.container}>
+      <View style={styles.darkMode}>
+        <Text style={styles.darkModeText}>
+          {/* inner Text will inherit outer Text  style */}
+          Style Inheritance <Text style={styles.boldText}>in bold</Text>
+        </Text>
+      </View>
       <View style={[styles.box, styles.lightGreen, styles.boxShadow]}>
         {/* borderRadius on Text only works on Android */}
         <Text style={{ backgroundColor: 'red', borderRadius: 5 }}>Box 1</Text>
@@ -16,6 +22,13 @@ export default App = () => {
 
 export const styles = StyleSheet.create({
   container: { flex: 1, padding: 60, backgroundColor: 'teal' },
+
+  // won't change text to white, unlike in CSS - no style inheritance
+  darkMode: { backgroundColor: 'black', color: 'white' },
+  // need to apply it directly
+  darkModeText: { color: 'white' },
+  boldText: { fontWeight: 'bold' },
+
   box: {
     width: '50%',
     height: '25%',
