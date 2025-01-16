@@ -7,7 +7,9 @@ export default function App() {
     // "flex: 1" to occupy all space
     // <View style={{ backgroundColor: 'plum', flex: 1 }}></View>
     <View style={styles.container}>
-      <Box style={{ backgroundColor: '#8e9b00' }}>Box 1</Box>
+      <Box style={{ backgroundColor: '#8e9b00', paddingVertical: 10 }}>
+        Box 1
+      </Box>
       <Box style={{ backgroundColor: '#b65d1f' }}>Box 2</Box>
       <Box style={{ backgroundColor: '#1c4c56' }}>Box 3</Box>
       {/* <Box style={{ backgroundColor: '#ab9156' }}>Box 4</Box> */}
@@ -26,7 +28,8 @@ const styles = StyleSheet.create({
     borderColor: 'red',
 
     flex: 1, // border shows it takes up all space rather than only space occupied by children
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'baseline', // content/text will be aligned on same baseline
   },
 })
