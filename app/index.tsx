@@ -21,7 +21,13 @@ export default function Index() {
       <StatusBar
         backgroundColor={"lightgreen"}
         barStyle={"dark-content"}
-        hidden
+        hidden={isVis}
+      />
+      <Button
+        title="Toggle Status Bar"
+        onPress={() => {
+          setVis(!isVis);
+        }}
       />
     </View>
   );
