@@ -16,11 +16,11 @@ export default function App() {
       <Box style={{ backgroundColor: '#1c4c56', alignSelf: 'flex-end' }}>
         Box 3
       </Box>
-      {/* <Box style={{ backgroundColor: '#ab9156' }}>Box 4</Box> */}
+      <Box style={{ backgroundColor: '#ab9156' }}>Box 4</Box>
       {/* rest of boxes overflow */}
-      {/* <Box style={{ backgroundColor: '#6b0003' }}>Box 5</Box>
+      <Box style={{ backgroundColor: '#6b0003' }}>Box 5</Box>
       <Box style={{ backgroundColor: '#1c4c56' }}>Box 6</Box>
-      <Box style={{ backgroundColor: '#b95f21' }}>Box 7</Box> */}
+      <Box style={{ backgroundColor: '#b95f21' }}>Box 7</Box>
     </View>
   )
 }
@@ -31,9 +31,12 @@ const styles = StyleSheet.create({
     borderWidth: 6,
     borderColor: 'red',
 
-    flex: 1, // border shows it takes up all space rather than only space occupied by children
-    flexDirection: 'column',
+    height: 300,
+
+    // flex: 1, // border shows it takes up all space rather than only space occupied by children
+    flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'stretch', // content/text will be aligned on same baseline
+    alignItems: 'center',
+    flexWrap: 'wrap-reverse',
   },
 })
