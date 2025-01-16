@@ -6,6 +6,7 @@ import {
   Modal,
   Pressable,
   ScrollView,
+  StatusBar,
   Text,
   View,
 } from "react-native";
@@ -17,33 +18,11 @@ export default function Index() {
 
   return (
     <View style={{ backgroundColor: "plum", flex: 1, padding: 60 }}>
-      <Button
-        title="Open Modal"
-        onPress={() => {
-          console.log("Pressed button");
-          setVis(true);
-        }}
+      <StatusBar
+        backgroundColor={"lightgreen"}
+        barStyle={"dark-content"}
+        hidden
       />
-      <Modal
-        visible={isVis}
-        onRequestClose={() => {
-          console.log("Back button pressed");
-          setVis(false);
-        }}
-        animationType="slide" // or fade
-        presentationStyle="formSheet"
-      >
-        <View style={{ padding: 30 }}>
-          <Text>Modal Content Here</Text>
-          <Button
-            title="Close"
-            onPress={() => {
-              console.log("Closing");
-              setVis(false);
-            }}
-          ></Button>
-        </View>
-      </Modal>
     </View>
   );
 }
