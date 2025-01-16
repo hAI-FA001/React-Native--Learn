@@ -7,11 +7,15 @@ export default function App() {
     // "flex: 1" to occupy all space
     // <View style={{ backgroundColor: 'plum', flex: 1 }}></View>
     <View style={styles.container}>
-      <Box style={{ backgroundColor: '#8e9b00', paddingVertical: 10 }}>
+      <Box style={{ backgroundColor: '#8e9b00', alignSelf: 'flex-start' }}>
         Box 1
       </Box>
-      <Box style={{ backgroundColor: '#b65d1f' }}>Box 2</Box>
-      <Box style={{ backgroundColor: '#1c4c56' }}>Box 3</Box>
+      <Box style={{ backgroundColor: '#b65d1f', alignSelf: 'center' }}>
+        Box 2
+      </Box>
+      <Box style={{ backgroundColor: '#1c4c56', alignSelf: 'flex-end' }}>
+        Box 3
+      </Box>
       {/* <Box style={{ backgroundColor: '#ab9156' }}>Box 4</Box> */}
       {/* rest of boxes overflow */}
       {/* <Box style={{ backgroundColor: '#6b0003' }}>Box 5</Box>
@@ -28,8 +32,8 @@ const styles = StyleSheet.create({
     borderColor: 'red',
 
     flex: 1, // border shows it takes up all space rather than only space occupied by children
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-between',
-    alignItems: 'baseline', // content/text will be aligned on same baseline
+    alignItems: 'stretch', // content/text will be aligned on same baseline
   },
 })
