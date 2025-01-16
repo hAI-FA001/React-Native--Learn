@@ -19,14 +19,25 @@ export default function Index() {
 
   return (
     <View style={{ backgroundColor: "plum", flex: 1, padding: 60 }}>
-      <ActivityIndicator />
-      <ActivityIndicator size={"small"} />
+      <ActivityIndicator animating={isVis} />
+      <ActivityIndicator size={"small"} animating={isVis} />
       <ActivityIndicator
         size={"large"}
         color={"midnightblue"}
-        animating={false} // show or hide
+        animating={isVis} // show or hide
       />
-      <ActivityIndicator size={"large"} color={"midnightblue"} />
+      <ActivityIndicator
+        size={"large"}
+        color={"midnightblue"}
+        animating={isVis}
+      />
+
+      <Button
+        title="Toggle Indicators"
+        onPress={() => {
+          setVis(!isVis);
+        }}
+      />
     </View>
   );
 }
