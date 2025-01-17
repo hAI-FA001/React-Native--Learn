@@ -69,7 +69,10 @@ export default function App() {
             value={postBody}
             onChangeText={setPostBody}
           />
-          <Button title="Create" />
+          <Button
+            title={isPosting ? 'Creating...' : 'Create'}
+            disabled={isPosting}
+          />
         </View>
 
         <View style={styles.listContainer}>
