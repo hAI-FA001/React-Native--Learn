@@ -11,7 +11,7 @@ import {
 
 export default function App() {
   const [val, setVal] = useState('')
-  console.log(val)
+  const [isDark, setIsDark] = useState(false)
 
   return (
     <SafeAreaView style={styles.container}>
@@ -34,7 +34,12 @@ export default function App() {
 
       <View style={styles.switchContainer}>
         <Text style={styles.text}>Dark Mode</Text>
-        <Switch />
+        <Switch
+          value={isDark}
+          onValueChange={() => setIsDark(!isDark)}
+          trackColor={{ false: '#767577', true: 'lightblue' }}
+          thumbColor={'#f4f3f4'}
+        />
       </View>
     </SafeAreaView>
   )
