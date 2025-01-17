@@ -15,7 +15,8 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <View style={styles.scrollView}>
         <FlatList
-          data={pokeList}
+          // data={pokeList}
+          data={[]}
           renderItem={(p) => {
             // only loads when in view, more performant
             console.log(p.item.id)
@@ -29,6 +30,7 @@ export default function App() {
           // horizontal // horizontal list
           keyExtractor={(item) => item.id}
           ItemSeparatorComponent={<View style={{ height: 16 }}></View>}
+          ListEmptyComponent={<Text>No items found</Text>}
         />
       </View>
     </SafeAreaView>
