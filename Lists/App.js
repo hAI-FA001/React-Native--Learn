@@ -30,7 +30,9 @@ export default function App() {
           // horizontal // horizontal list
           keyExtractor={(item) => item.id}
           ItemSeparatorComponent={<View style={{ height: 16 }}></View>}
-          ListEmptyComponent={<Text>No items found</Text>}
+          ListEmptyComponent={
+            <Text style={styles.noItemsText}>No items found</Text>
+          }
         />
       </View>
     </SafeAreaView>
@@ -58,5 +60,10 @@ const styles = StyleSheet.create({
   },
   cardText: {
     fontSize: 30,
+  },
+
+  noItemsText: {
+    fontSize: 22,
+    textAlign: 'center',
   },
 })
