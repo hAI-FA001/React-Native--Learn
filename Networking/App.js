@@ -20,6 +20,8 @@ export default function App() {
   const [postBody, setPostBody] = useState('')
   const [isPosting, setIsPosting] = useState(false)
 
+  const [formErrors, setFormErrors] = useState({})
+
   const fetchData = async (limit = 10) => {
     // delay
     await new Promise((resolve) => setTimeout(resolve, 2000))
@@ -38,6 +40,21 @@ export default function App() {
     fetchData(20).then((res) => {
       setIsRefreshing(false)
     })
+  }
+
+  const validate = () => {
+    let formErrors = {}
+
+    if (!postTitle) {
+      formErrors.title = 'Title is required'
+    }
+    if (!postBody) {
+      formErrors.body = 'Body is required'
+    }
+
+    setFormErrors(formErrors)
+
+    return Object.keys(formErrors).length === 0
   }
 
   const addPost = async () => {
@@ -84,16 +101,28 @@ export default function App() {
             value={postTitle}
             onChangeText={setPostTitle}
           />
+          {formErrors.title ? (
+            <Text style={styles.errorText}>{formErrors.title}</Text>
+          ) : null}
+
           <TextInput
             style={styles.input}
             placeholder="Post Body"
             value={postBody}
             onChangeText={setPostBody}
           />
+          {formErrors.body ? (
+            <Text style={styles.errorText}>{formErrors.body}</Text>
+          ) : null}
+
           <Button
             title={isPosting ? 'Creating...' : 'Create'}
             disabled={isPosting}
-            onPress={addPost}
+            onPress={() => {
+              if (validate()) {
+                addPost()
+              }
+            }}
           />
         </View>
 
@@ -178,4 +207,6 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 8,
   },
+
+  errorText: {},
 })
