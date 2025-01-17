@@ -14,9 +14,9 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         {pokeList.map((p) => (
-          <View key={p.id}>
-            <Text>{p.type}</Text>
-            <Text>{p.name}</Text>
+          <View key={p.id} style={styles.card}>
+            <Text style={styles.cardText}>{p.type}</Text>
+            <Text style={styles.cardText}>{p.name}</Text>
           </View>
         ))}
       </ScrollView>
@@ -34,5 +34,16 @@ const styles = StyleSheet.create({
 
   scrollView: {
     paddingHorizontal: 16,
+  },
+
+  card: {
+    backgroundColor: 'white',
+    padding: 16,
+    borderRadius: 8,
+    borderWidth: 1,
+    marginBottom: 16,
+  },
+  cardText: {
+    fontSize: 30,
   },
 })
