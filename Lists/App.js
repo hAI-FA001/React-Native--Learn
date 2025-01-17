@@ -4,6 +4,7 @@ import {
   View,
   ScrollView,
   SafeAreaView,
+  FlatList,
   StatusBar,
 } from 'react-native'
 
@@ -12,14 +13,23 @@ import pokeList from './data.json'
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
-        {pokeList.map((p) => (
-          <View key={p.id} style={styles.card}>
-            <Text style={styles.cardText}>{p.type}</Text>
-            <Text style={styles.cardText}>{p.name}</Text>
-          </View>
-        ))}
-      </ScrollView>
+      <View style={styles.scrollView}>
+        <FlatList
+          data={pokeList}
+          renderItem={(p) => {
+            // only loads when in view, more performant
+            console.log(p.item.id)
+            return (
+              <View key={p.item.id} style={styles.card}>
+                <Text style={styles.cardText}>{p.item.type}</Text>
+                <Text style={styles.cardText}>{p.item.name}</Text>
+              </View>
+            )
+          }}
+          // horizontal // horizontal list
+          keyExtractor={(item) => item.id}
+        />
+      </View>
     </SafeAreaView>
   )
 }
