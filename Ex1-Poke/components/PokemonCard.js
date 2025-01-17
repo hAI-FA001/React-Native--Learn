@@ -5,13 +5,14 @@ const PokemonCard = ({ name, image, type, hp, moves, weaknesses }) => {
     <View style={styles.card}>
       <View style={styles.nameContainer}>
         <Text style={styles.name}>{name}</Text>
-        <Text style={styles.hp}>{hp}</Text>
+        <Text style={styles.hp}>❤{hp}</Text>
       </View>
 
       <Image
         source={image}
         style={styles.image}
         accessibilityLabel={`${name} pokemon`}
+        resizeMode="contain"
       />
 
       <View style={styles.typeContainer}>
@@ -51,11 +52,19 @@ const styles = StyleSheet.create({
     }),
   },
 
-  nameContainer: {},
-  name: {},
-  hp: {},
+  nameContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 32,
+  },
+  name: { fontSize: 30, fontWeight: 'bold' },
+  hp: { fontSize: 22 },
 
-  image: {},
+  image: {
+    width: '100%',
+    height: 200,
+    marginBottom: 16,
+  },
 
   typeContainer: {},
   type: {},
