@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   box: {
+    // width is very different on different devices, using % is not good
     width: '70%',
     height: '40%',
     backgroundColor: 'lightblue',
