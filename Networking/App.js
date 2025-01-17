@@ -140,4 +140,20 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 12,
   },
+
+  inputContainer: {
+    backgroundColor: 'white',
+    padding: 16,
+    borderRadius: 8,
+    borderWidth: 1,
+    margin: 16,
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 8,
+    padding: 8,
+    borderRadius: 8,
+  },
 })
