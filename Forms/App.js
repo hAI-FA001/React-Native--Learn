@@ -2,17 +2,27 @@ import { useState } from 'react'
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
 
 export default function App() {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
   return (
     <View style={styles.container}>
       <View style={styles.form}>
         <Text style={styles.label}>Username</Text>
-        <TextInput style={styles.input} placeholder="Enter username" />
+        <TextInput
+          style={styles.input}
+          placeholder="Enter username"
+          value={username}
+          onChangeText={setUsername}
+        />
 
         <Text style={styles.label}>Password</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter password"
           secureTextEntry
+          value={password}
+          onChangeText={setPassword}
         />
 
         <Button title="Login" onPress={() => {}} />
