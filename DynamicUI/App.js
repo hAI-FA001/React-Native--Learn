@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet, SafeAreaView, Platform } from 'react-native'
+import CustomButton from './components/CustomButton/CustomButton'
 
 export default App = () => {
   console.log(Platform)
@@ -7,6 +8,12 @@ export default App = () => {
       <View style={styles.container}>
         <View style={styles.box}>
           <Text style={styles.text}>Hello world</Text>
+          <CustomButton
+            title={'Press'}
+            onPress={() => {
+              console.log('PRESSED')
+            }}
+          />
         </View>
       </View>
     </SafeAreaView>

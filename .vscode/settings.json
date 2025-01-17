@@ -9,5 +9,6 @@
     "javascript": "javascriptreact"
   },
 
-  "reactSnippets.settings.importReactOnTop": false
+  "reactSnippets.settings.importReactOnTop": false,
+  "cSpell.words": ["midnightblue", "Pressable"]
 }
