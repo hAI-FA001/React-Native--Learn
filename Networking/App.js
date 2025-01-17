@@ -40,6 +40,27 @@ export default function App() {
     })
   }
 
+  const addPost = async () => {
+    setIsPosting(true)
+    const resp = await fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ title: postTitle, body: postBody }),
+    })
+    const newPost = await resp.json()
+
+    // add to bottom
+    // setPostList([...postList, newPost])
+    // add to top
+    setPostList([newPost, ...postList])
+
+    setPostTitle('')
+    setPostBody('')
+    setIsPosting(false)
+  }
+
   useEffect(() => {
     fetchData()
   }, [])
@@ -72,6 +93,7 @@ export default function App() {
           <Button
             title={isPosting ? 'Creating...' : 'Create'}
             disabled={isPosting}
+            onPress={addPost}
           />
         </View>
 
