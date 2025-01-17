@@ -6,6 +6,7 @@ import {
   StatusBar,
   SafeAreaView,
   TextInput,
+  Switch,
 } from 'react-native'
 
 export default function App() {
@@ -30,6 +31,11 @@ export default function App() {
         multiline
       />
       <Text style={styles.text}>You said: {val}</Text>
+
+      <View style={styles.switchContainer}>
+        <Text style={styles.text}>Dark Mode</Text>
+        <Switch />
+      </View>
     </SafeAreaView>
   )
 }
@@ -51,4 +57,11 @@ const styles = StyleSheet.create({
   text: { fontSize: 30, padding: 10 },
 
   multilineText: { minHeight: 100, textAlignVertical: 'top' },
+
+  switchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
+  },
 })
