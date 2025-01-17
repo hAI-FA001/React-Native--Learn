@@ -12,6 +12,7 @@ import {
 export default function App() {
   const [postList, setPostList] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [isRefreshing, setIsRefreshing] = useState(false)
 
   const fetchData = async (limit = 10) => {
     // delay
@@ -24,6 +25,13 @@ export default function App() {
     setPostList(data)
     // console.log(data)
     setIsLoading(false)
+  }
+
+  const handleRefresh = () => {
+    setIsRefreshing(true)
+    fetchData(20).then((res) => {
+      setIsRefreshing(false)
+    })
   }
 
   useEffect(() => {
@@ -56,6 +64,8 @@ export default function App() {
           ListFooterComponent={
             <Text style={styles.footerText}>End of List</Text>
           }
+          refreshing={isRefreshing}
+          onRefresh={handleRefresh}
         />
       </View>
     </SafeAreaView>
