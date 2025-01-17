@@ -14,7 +14,16 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <TextInput style={styles.input} value={val} onChangeText={setVal} />
+      <TextInput
+        style={styles.input}
+        value={val}
+        onChangeText={setVal}
+        placeholder="example@email.com"
+        // secureTextEntry
+        // keyboardType="numeric"
+        autoCorrect={true}
+        autoCapitalize="characters"
+      />
       <Text style={styles.text}>You said: {val}</Text>
     </SafeAreaView>
   )
