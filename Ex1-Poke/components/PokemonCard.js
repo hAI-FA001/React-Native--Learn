@@ -3,27 +3,29 @@ import { View, Text, StyleSheet, Platform, Image } from 'react-native'
 const PokemonCard = ({ name, image, type, hp, moves, weaknesses }) => {
   return (
     <View style={styles.card}>
-      <View>
-        <Text>{name}</Text>
-        <Text>{hp}</Text>
+      <View style={styles.nameContainer}>
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.hp}>{hp}</Text>
       </View>
 
       <Image
         source={image}
-        style={{ width: 30, height: 30 }}
+        style={styles.image}
         accessibilityLabel={`${name} pokemon`}
       />
 
-      <View>
-        <Text>{type}</Text>
+      <View style={styles.typeContainer}>
+        <Text style={styles.type}>{type}</Text>
       </View>
 
-      <View>
-        <Text>Moves: {moves.join(',')}</Text>
+      <View style={styles.movesContainer}>
+        <Text style={styles.moves}>Moves: {moves.join(',')}</Text>
       </View>
 
-      <View>
-        <Text>Weaknesses: {weaknesses.join(',')}</Text>
+      <View style={styles.weaknessContainer}>
+        <Text style={styles.weaknesses}>
+          Weaknesses: {weaknesses.join(',')}
+        </Text>
       </View>
     </View>
   )
@@ -48,4 +50,19 @@ const styles = StyleSheet.create({
       android: { elevation: 5 },
     }),
   },
+
+  nameContainer: {},
+  name: {},
+  hp: {},
+
+  image: {},
+
+  typeContainer: {},
+  type: {},
+
+  movesContainer: {},
+  moves: {},
+
+  weaknessContainer: {},
+  weaknesses: {},
 })
