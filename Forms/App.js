@@ -14,6 +14,19 @@ export default function App() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
+  const [errors, setErrors] = useState({})
+
+  const validate = () => {
+    let errors = {}
+
+    if (!username) errors.username = 'Username is required'
+    if (!password) errors.password = 'Password is required'
+
+    setErrors(errors)
+
+    return Object.keys(errors).length === 0
+  }
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -32,6 +45,9 @@ export default function App() {
           value={username}
           onChangeText={setUsername}
         />
+        {errors.username ? (
+          <Text style={styles.errorText}>{errors.username}</Text>
+        ) : null}
 
         <Text style={styles.label}>Password</Text>
         <TextInput
@@ -41,8 +57,16 @@ export default function App() {
           value={password}
           onChangeText={setPassword}
         />
+        {errors.password ? (
+          <Text style={styles.errorText}>{errors.password}</Text>
+        ) : null}
 
-        <Button title="Login" onPress={() => {}} />
+        <Button
+          title="Login"
+          onPress={() => {
+            validate()
+          }}
+        />
       </View>
     </KeyboardAvoidingView>
   )
@@ -84,8 +108,13 @@ const styles = StyleSheet.create({
 
   image: {
     width: 200,
-    height: 400,
+    height: 200,
     alignSelf: 'center',
     marginBottom: 50,
+  },
+
+  errorText: {
+    color: 'red',
+    marginBottom: 10,
   },
 })
