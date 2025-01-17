@@ -15,8 +15,8 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <View style={styles.scrollView}>
         <FlatList
-          // data={pokeList}
-          data={[]}
+          data={pokeList}
+          // data={[]}
           renderItem={(p) => {
             // only loads when in view, more performant
             console.log(p.item.id)
@@ -32,6 +32,12 @@ export default function App() {
           ItemSeparatorComponent={<View style={{ height: 16 }}></View>}
           ListEmptyComponent={
             <Text style={styles.noItemsText}>No items found</Text>
+          }
+          ListHeaderComponent={
+            <Text style={styles.headerText}>Pokemon List</Text>
+          }
+          ListFooterComponent={
+            <Text style={styles.footerText}>End of List</Text>
           }
         />
       </View>
@@ -65,5 +71,16 @@ const styles = StyleSheet.create({
   noItemsText: {
     fontSize: 22,
     textAlign: 'center',
+  },
+
+  headerText: {
+    fontSize: 24,
+    textAlign: 'center',
+    marginBottom: 12,
+  },
+  footerText: {
+    fontSize: 24,
+    textAlign: 'center',
+    marginTop: 12,
   },
 })
