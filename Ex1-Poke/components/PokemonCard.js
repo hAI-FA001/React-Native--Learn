@@ -104,9 +104,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  movesContainer: {},
-  moves: {},
+  movesContainer: { marginBottom: 16 },
+  moves: { fontSize: 18, fontWeight: 'bold' },
 
-  weaknessContainer: {},
-  weaknesses: {},
+  weaknessContainer: { marginBottom: 8 },
+  weaknesses: { fontSize: 18, fontWeight: 'bold' },
 })
