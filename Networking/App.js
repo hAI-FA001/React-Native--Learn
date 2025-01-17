@@ -7,12 +7,18 @@ import {
   FlatList,
   Text,
   ActivityIndicator,
+  TextInput,
+  Button,
 } from 'react-native'
 
 export default function App() {
   const [postList, setPostList] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [isRefreshing, setIsRefreshing] = useState(false)
+
+  const [postTitle, setPostTitle] = useState('')
+  const [postBody, setPostBody] = useState('')
+  const [isPosting, setIsPosting] = useState(false)
 
   const fetchData = async (limit = 10) => {
     // delay
@@ -49,25 +55,45 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.listContainer}>
-        <FlatList
-          data={postList}
-          renderItem={({ item }) => (
-            <View style={styles.card}>
-              <Text style={styles.titleText}>{item.title}</Text>
-              <Text style={styles.bodyText}>{item.body}</Text>
-            </View>
-          )}
-          ItemSeparatorComponent={() => <View style={{ height: 16 }}></View>}
-          ListEmptyComponent={<Text>No Posts Found</Text>}
-          ListHeaderComponent={<Text style={styles.headerText}>Post List</Text>}
-          ListFooterComponent={
-            <Text style={styles.footerText}>End of List</Text>
-          }
-          refreshing={isRefreshing}
-          onRefresh={handleRefresh}
-        />
-      </View>
+      <>
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.input}
+            placeholder="Post Title"
+            value={postTitle}
+            onChangeText={setPostTitle}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Post Body"
+            value={postBody}
+            onChangeText={setPostBody}
+          />
+          <Button title="Create" />
+        </View>
+
+        <View style={styles.listContainer}>
+          <FlatList
+            data={postList}
+            renderItem={({ item }) => (
+              <View style={styles.card}>
+                <Text style={styles.titleText}>{item.title}</Text>
+                <Text style={styles.bodyText}>{item.body}</Text>
+              </View>
+            )}
+            ItemSeparatorComponent={() => <View style={{ height: 16 }}></View>}
+            ListEmptyComponent={<Text>No Posts Found</Text>}
+            ListHeaderComponent={
+              <Text style={styles.headerText}>Post List</Text>
+            }
+            ListFooterComponent={
+              <Text style={styles.footerText}>End of List</Text>
+            }
+            refreshing={isRefreshing}
+            onRefresh={handleRefresh}
+          />
+        </View>
+      </>
     </SafeAreaView>
   )
 }
