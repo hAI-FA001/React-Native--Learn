@@ -1,11 +1,18 @@
-import { StyleSheet, Text, View, ScrollView } from 'react-native'
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  SafeAreaView,
+  StatusBar,
+} from 'react-native'
 
 import pokeList from './data.json'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <ScrollView>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
         {pokeList.map((p) => (
           <View key={p.id}>
             <Text>{p.type}</Text>
@@ -13,15 +20,19 @@ export default function App() {
           </View>
         ))}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#f5f5f5',
+
+    paddingTop: StatusBar.currentHeight,
+  },
+
+  scrollView: {
+    paddingHorizontal: 16,
   },
 })
