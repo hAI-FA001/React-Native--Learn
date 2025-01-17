@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Dimensions } from 'react-native'
 
 export default App = () => {
   return (
@@ -10,6 +10,9 @@ export default App = () => {
   )
 }
 
+const winWidth = Dimensions.get('window').width
+const winHeight = Dimensions.get('window').height
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -18,14 +21,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   box: {
-    // width is very different on different devices, using % is not good
-    width: '70%',
-    height: '40%',
+    width: winWidth > 500 ? '70%' : '90%',
+    height: winHeight > 600 ? '60%' : '90%',
     backgroundColor: 'lightblue',
     alignItems: 'center',
     justifyContent: 'center',
   },
   text: {
-    fontSize: 24,
+    fontSize: winWidth > 500 ? 50 : 24,
   },
 })
