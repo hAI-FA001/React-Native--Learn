@@ -9,6 +9,10 @@ const AboutScreen = ({ route }) => {
     <View style={styles.container}>
       <Text style={styles.text}>About Screen - {name}</Text>
       <Button title="Go To Home" onPress={() => navigation.navigate('Home')} />
+      <Button
+        title="Update Param"
+        onPress={() => navigation.setParams({ name: `Updated - ${name} ` })}
+      />
     </View>
   )
 }
