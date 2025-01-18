@@ -1,9 +1,23 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Button, StyleSheet, Text, View } from 'react-native'
 
-const DashboardScreen = () => {
+const DashboardScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Dashboard Screen</Text>
+
+      <Button
+        title="Open Drawer"
+        onPress={() => {
+          navigation.toggleDrawer()
+        }}
+      />
+
+      <Button
+        title="Settings"
+        onPress={() => {
+          navigation.jumpTo('Settings')
+        }}
+      />
     </View>
   )
 }
