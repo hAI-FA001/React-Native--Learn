@@ -1,9 +1,14 @@
 import { useNavigation } from '@react-navigation/native'
+import { useLayoutEffect } from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native'
 
 const AboutScreen = ({ route }) => {
   const navigation = useNavigation()
   const { name } = route.params
+
+  useLayoutEffect(() => {
+    navigation.setOptions({ title: name })
+  }, [navigation, name])
 
   return (
     <View style={styles.container}>
