@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import HomeScreen from './screens/HomeScreen'
 import AboutScreen from './screens/AboutScreen'
 
@@ -18,6 +18,17 @@ export default function App() {
             headerStyle: { backgroundColor: '#6a51ae' },
             headerTintColor: '#fff',
             headerTitleStyle: { fontWeight: 'bold' },
+
+            headerRight: () => (
+              <Pressable
+                onPress={() => {
+                  console.log('Pressed menu')
+                  alert('Menu Pressed')
+                }}
+              >
+                <Text style={{ fontSize: 16, color: '#fff' }}>Menu</Text>
+              </Pressable>
+            ),
           }}
         />
 
