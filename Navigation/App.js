@@ -29,6 +29,8 @@ export default function App() {
                 <Text style={{ fontSize: 16, color: '#fff' }}>Menu</Text>
               </Pressable>
             ),
+
+            contentStyle: { backgroundColor: '#e8e4f3' },
           }}
         />
 
