@@ -5,6 +5,7 @@ import ProfileScreen from './screens/ProfileScreen'
 import CourseListScreen from './screens/CourseListScreen'
 
 import Ionicons from '@expo/vector-icons/Ionicons'
+import { AboutStack } from './AppOLD-Stack'
 
 const Tab = createBottomTabNavigator()
 
@@ -31,7 +32,12 @@ export default App = () => {
             tabBarBadge: 3,
           }}
         />
-        <Tab.Screen name="CourseList" component={CourseListScreen} />
+        <Tab.Screen name="Course List" component={CourseListScreen} />
+        <Tab.Screen
+          name="About Stack"
+          component={AboutStack}
+          options={{ headerShown: false }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   )
