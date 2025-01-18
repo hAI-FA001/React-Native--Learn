@@ -9,28 +9,31 @@ const Stack = createNativeStackNavigator()
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerRight: () => (
+            <Pressable
+              onPress={() => {
+                console.log('Pressed menu')
+                alert('Menu Pressed')
+              }}
+            >
+              <Text style={{ fontSize: 16, color: '#fff' }}>Menu</Text>
+            </Pressable>
+          ),
+
+          contentStyle: { backgroundColor: '#e8e4f3' },
+          headerStyle: { backgroundColor: '#6a51ae' },
+          headerTintColor: '#fff',
+          headerTitleStyle: { fontWeight: 'bold' },
+        }}
+      >
         <Stack.Screen
           name="Home"
           component={HomeScreen}
           options={{
             title: 'Welcome Home',
-            headerStyle: { backgroundColor: '#6a51ae' },
-            headerTintColor: '#fff',
-            headerTitleStyle: { fontWeight: 'bold' },
-
-            headerRight: () => (
-              <Pressable
-                onPress={() => {
-                  console.log('Pressed menu')
-                  alert('Menu Pressed')
-                }}
-              >
-                <Text style={{ fontSize: 16, color: '#fff' }}>Menu</Text>
-              </Pressable>
-            ),
-
-            contentStyle: { backgroundColor: '#e8e4f3' },
           }}
         />
 
