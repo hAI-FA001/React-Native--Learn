@@ -1,0 +1,69 @@
+## React-Native
+<a href="https://www.youtube.com/playlist?list=PLC3y8-rFHvwhiQJD1di4eRVN30WWCXkg1">Reference</a>
+
+Topics:
+- Core Components
+  - `View`
+  - `Text`
+  - `Image`
+  - `ImageBackground`
+  - `ScrollView`
+  - `Button`
+  - `Pressable`
+  - `Modal`
+  - `StatusBar`
+  - `ActivityIndicator`
+  - `Alert` API
+- Custom Components
+- Styling
+  - `StyleSheet` API
+  - Style inheritance
+- Layouts
+  - Flexbox
+  - Relative and Absolute Position
+- Responsive UI
+  - `Dimensions` API
+  - Device Orientation
+  - `useWindowDimensions`
+  - `SafeAreaView`
+  - Platform-Specific code
+    - `Platform` module
+    - Platform-specific files
+- Lists
+  - Using `map()` method like in React
+  - `FlatList`
+  - `SectionList`
+- Forms
+  - `TextInput`
+  - Multiline `TextInput`
+  - `Switch`
+  - Log-In Form
+    - `KeyboardAvoidingView`
+    - Validation
+    - Submission
+- Networking
+  - `fetch` API
+  - Pull-to-Refresh
+  - POST with `fetch` API
+  - Validation
+  - Network error handling
+- Navigation
+  - `NavigationContainer`
+  - `Navigator` and `Screen`
+  - `Stack` navigator
+  - Passing data inside `navigate()`
+    - Accessing data with `route` prop
+    - Acessing data with `useNavigation`
+  - Screen options
+    - Styling the header
+    - Adding menu in the header
+    - Dynamic options by passing function to `options`
+    - Dynamic options by `useLayoutEffect`
+  - `Drawer` navigator
+    - Toggle programmatically
+    - Navigate programmatically
+    - Drawer options
+  - `Bottom Tab` navigator
+    - Options
+    - Using `Ionicons`
+  - Nesting navigators
