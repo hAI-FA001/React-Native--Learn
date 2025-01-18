@@ -8,11 +8,32 @@ const AboutScreen = ({ route }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>About Screen - {name}</Text>
-      <Button title="Go To Home" onPress={() => navigation.navigate('Home')} />
-      <Button
-        title="Update Param"
-        onPress={() => navigation.setParams({ name: `Updated - ${name} ` })}
-      />
+
+      <View style={styles.buttonContainer}>
+        <Button
+          style={styles.button}
+          title="Go To Home"
+          onPress={() => navigation.navigate('Home')}
+        />
+      </View>
+
+      <View style={styles.buttonContainer}>
+        <Button
+          style={styles.button}
+          title="Update Param"
+          onPress={() => navigation.setParams({ name: `Updated - ${name} ` })}
+        />
+      </View>
+
+      <View style={styles.buttonContainer}>
+        <Button
+          style={styles.button}
+          title="Send Data Back"
+          onPress={() =>
+            navigation.navigate('Home', { result: 'Data from About' })
+          }
+        />
+      </View>
     </View>
   )
 }
@@ -28,5 +49,9 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
+  },
+
+  buttonContainer: {
+    marginVertical: 4,
   },
 })

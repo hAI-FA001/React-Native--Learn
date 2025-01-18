@@ -1,9 +1,12 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Home Screen</Text>
+
+      <Text style={styles.text}>{route.params?.result}</Text>
+
       <Button
         title="Go To About"
         onPress={() =>
